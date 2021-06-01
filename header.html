@@ -1,0 +1,48 @@
+<div class="navbar navbar-expand-lg navbar-light col-lg-12">
+
+  <a href="index.html"><img class="img-fluid" alt="Ancoraice-Logo" src="images/logo.png"/></a>
+
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse navbar-light navbar-right" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto navbar_font">
+      <li class="nav-item">
+        <a id="a_index" class="nav-link header_nav_a_style" href="index.html">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a id="a_flavours" class="nav-link header_nav_a_style" href="flavours.html">FLAVOURS</a>
+      </li>
+      <li class="nav-item">
+        <a id="a_history" class="nav-link header_nav_a_style" href="history.html">HISTORY</a>
+      </li>
+      <li class="nav-item">
+        <a id="a_contact" class="nav-link header_nav_a_style" href="contact.html">CONTACT</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+  var pathname = window.location.pathname;
+  var getpathname = pathname.split("/");
+  var getlast = getpathname.length-1;
+  var pagename = getpathname[getlast];
+
+  switch (pagename){
+
+    case "flavours.html":
+      document.getElementById("a_flavours").style.color = "#00a29a";
+    break;
+
+    case "history.html":
+      document.getElementById("a_history").style.color = "#00a29a";
+    break;
+
+    case "contact.html":
+      document.getElementById("a_contact").style.color = "#00a29a";
+    break;
+
+    default:
+      document.getElementById("a_index").style.color = "#00a29a";
+  }
+</script>

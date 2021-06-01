@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Contact</title>
+	<meta name="keywords" content="ancoraice,ice cream,new zealand,natural" />
+	<meta name="description" content="純粹、乾淨、優質、自然，來自紐西蘭的好味道" />
+	<meta name="author" content="ancoraice,kaohsiung,Taiwan">
+	<meta name="viewport" content= "width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css"></link>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- BootStrap -->
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-reboot.min.css"></link>
+	<!-- JavaScript -->
+	<script type="text/javascript" src="js/script.js"></script>
+
+	<script type="text/javascript">
+		function SubmitOk()
+  		{
+  			$("input").removeClass("error");
+      	fn = document.contactform;
+      	errTxt = "";
+      	errcount = 0;
+		   if(fn.Sex.value==''){
+		      errTxt = "Sex required!";
+		      $("input[name='Sex']").addClass("error");
+		      errcount = errcount + 1;
+		   }
+		   if(fn.Cust_name.value==''){
+		      errTxt = "Name required!";
+		      $("input[name='Cust_name']").addClass("error");
+		      errcount = errcount + 1;
+		   }
+		   if(fn.tel.value==''){
+		      errTxt = "Tel required!";
+		      $("input[name='tel']").addClass("error");
+		      errcount = errcount + 1;
+		   }
+		   if(fn.email.value==''){
+		      errTxt = "Email required!";
+		      $("input[name='email']").addClass("error");
+		      errcount = errcount + 1;
+		   }
+		   if(fn.info.value==''){
+		      errTxt = "info required!";
+		      $("textarea[name='info']").addClass("error");
+		      errcount = errcount + 1;
+		   }
+
+	   	if(errcount>0)
+	   	{
+	      	if(errcount>1)
+	      	{
+	      		alert("The * is required field.");
+	      	}
+	      	else
+	      	{
+	      		alert(errTxt);
+	      	}
+	      }
+	      else
+	      {
+	      	$('#Contact_alert').modal('show');
+		      var dots = window.setInterval( function() {
+		         var wait = document.getElementById("dot");
+		         if ( wait.innerHTML.length > 3 ) 
+		            wait.innerHTML = ".";
+		         else 
+		            wait.innerHTML += ".";
+		      }, 500);
+	      	document.getElementById("contactform").submit();
+	      }
+	   }
+	</script>
+
+</head>
+<body>
+	<header id="top" class="row"></header>
+
+	<div id="Contact_alert" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Contact_modal">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	        <div class="modal-header">
+	          <h4 class="modal-title">Processing<span id="dot">.</span></h4>
+	        </div>
+	    </div>
+	  </div>
+	</div>
+
+	<main class="row SourceHanSansRegular">
+		<div class="col-md-12">
+			<h1 class="contact-title-en SourceHanSansMedium">CONTACT</h1>
+			<h1 class="contact-title-ch SourceHanSansMedium">聯絡我們</h1>
+			<img class="title-banner" src="images/ice-cream-1081324.jpg" />
+		</div>
+		<div class="col-lg-3 offset-lg-1 col-md-12 col-sm-12 margin-TB-50px">
+			<h2 class="main-color margin-TB-50px">禾麗國際有限公司</h2>
+			<p><img class="icon-style" src="images/address_mail.jpg">info@ancoraice.com.tw</p>
+			<p>
+				<img class="icon-style" src="images/address_tel.jpg">
+				07-3330800&nbsp;&nbsp;&nbsp;&nbsp;07-2824356
+			</p>
+			<p><img class="icon-style" src="images/address_icon.jpg">高雄市苓雅區永定街177號</p>
+			<p class="margin-TB-50px">*SERVICE TIME Mon-Fri 0830-1800</p>
+			<img src="images/workstation-336369.jpg" width="590" height="375" />
+		</div>
+		
+		<div class="col-lg-4 offset-lg-3 col-md-12 col-sm-12 margin-TB-50px">
+			<form method="POST" action="sendto.php" id="contactform" name="contactform">
+				<label class="margin-TB-50px">
+					<span>Title</span>
+					<input class="input-text-style" type="text" name="title" size="38" />
+				</label>
+				<label class="margin-TB-50px ">
+					<span class="red-color">*</span><span>Name</span>
+					<label class="radio-inline"><input type="radio" name="Sex" value="Mr">Mr.</label>
+					<label class="radio-inline"><input type="radio" name="Sex" value="Mrs">Mrs.</label>
+					<label class="radio-inline"><input type="radio" name="Sex" value="Ms">Ms.</label>
+					<input class="input-text-style" type="text" name="Cust_name" />
+				</label>
+				<label class="margin-TB-50px">
+					<span class="red-color">*</span><span>TEL</span>
+					<input class="input-text-style" type="text" name="tel" size="38" />
+				</label>
+				<label class="margin-TB-50px">
+					<span class="red-color">*</span><span>E-Mail</span>
+					<input class="input-text-style" type="text" name="email" size="38" />
+				</label>
+				<label class="margin-TB-1">
+					<p><span class="red-color">*</span>info</p>
+					<textarea class="input-text-style" rows="4" cols="50" name="info"></textarea>
+				</label>
+			</form>
+
+			<button class="btn btn-style" onclick="SubmitOk()">Submit</button>
+		</div>
+	</main>
+
+	<footer class="main-color footer-63-150-41 SourceHanSansRegular"></footer>
+</body>
+</html>
